@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="0.2">
+    <title xml:lang="ko">MBTI 프리미엄 검사</title>
+    <description xml:lang="ko">로컬 스토리지 연동, 포인트 차감, 프리미엄 UI가 적용된 신빙성 있는 MBTI 검사 모듈입니다.</description>
+    <version>1.0.0</version>
+    <date>2026-02-21</date>
+    <category>service</category>
+    <author email="admin@example.com" link="https://example.com/">
+        <name xml:lang="ko">개발자</name>
+    </author>
+    <license>GPLv2</license>
+    <homepage>https://rhymix.org</homepage>
+
+</module>

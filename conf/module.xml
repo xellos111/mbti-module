@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants />
+    <actions>
+        <!-- View Actions -->
+        <action name="dispMbtiIndex" type="view" standalone="true" />
+        <action name="dispMbtiTest" type="view" standalone="true" />
+        <action name="dispMbtiResult" type="view" standalone="true" />
+        
+        <!-- Controller Actions -->
+        <action name="procMbtiSubmit" type="controller" standalone="true" />
+    </actions>
+</module>

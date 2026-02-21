@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table name="mbti_results">
+    <column name="result_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" />
+    <column name="member_srl" type="number" size="11" notnull="notnull" index="idx_member_srl" />
+    <column name="mbti_type" type="varchar" size="4" notnull="notnull" />
+    <column name="score_e" type="number" size="11" default="0" notnull="notnull" />
+    <column name="score_i" type="number" size="11" default="0" notnull="notnull" />
+    <column name="score_s" type="number" size="11" default="0" notnull="notnull" />
+    <column name="score_n" type="number" size="11" default="0" notnull="notnull" />
+    <column name="score_t" type="number" size="11" default="0" notnull="notnull" />
+    <column name="score_f" type="number" size="11" default="0" notnull="notnull" />
+    <column name="score_j" type="number" size="11" default="0" notnull="notnull" />
+    <column name="score_p" type="number" size="11" default="0" notnull="notnull" />
+    <column name="regdate" type="date" notnull="notnull" />
+</table>

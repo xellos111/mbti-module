@@ -1,0 +1,67 @@
+<load target="css/mbti.css" />
+
+<div class="mbti-premium-container">
+    <div class="mbti-result-card mbti-type-{$mbti_result->mbti_type}">
+        <div class="result-header">
+            <h4>당신의 성격 유형은</h4>
+            <h1 class="result-type">{$mbti_result->mbti_type}</h1>
+            <p class="result-date">{zdate($mbti_result->regdate, 'Y년 m월 d일')} 검사 완료</p>
+        </div>
+
+        <div class="result-bars">
+            <!-- E vs I -->
+            <div class="bar-row">
+                <span class="label left">외향 (E)</span>
+                <div class="bar-track">
+                    {@ $ratio_e = ($mbti_result->score_e / ($mbti_result->score_e + $mbti_result->score_i)) * 100 }
+                    {@ $ratio_i = 100 - $ratio_e }
+                    <div class="bar-fill e-fill" style="width:{$ratio_e}%"></div>
+                    <div class="bar-fill i-fill" style="width:{$ratio_i}%"></div>
+                </div>
+                <span class="label right">내향 (I)</span>
+            </div>
+
+            <!-- S vs N -->
+            <div class="bar-row">
+                <span class="label left">감각 (S)</span>
+                <div class="bar-track">
+                    {@ $ratio_s = ($mbti_result->score_s / ($mbti_result->score_s + $mbti_result->score_n)) * 100 }
+                    {@ $ratio_n = 100 - $ratio_s }
+                    <div class="bar-fill s-fill" style="width:{$ratio_s}%"></div>
+                    <div class="bar-fill n-fill" style="width:{$ratio_n}%"></div>
+                </div>
+                <span class="label right">직관 (N)</span>
+            </div>
+
+            <!-- T vs F -->
+            <div class="bar-row">
+                <span class="label left">사고 (T)</span>
+                <div class="bar-track">
+                    {@ $ratio_t = ($mbti_result->score_t / ($mbti_result->score_t + $mbti_result->score_f)) * 100 }
+                    {@ $ratio_f = 100 - $ratio_t }
+                    <div class="bar-fill t-fill" style="width:{$ratio_t}%"></div>
+                    <div class="bar-fill f-fill" style="width:{$ratio_f}%"></div>
+                </div>
+                <span class="label right">감정 (F)</span>
+            </div>
+
+            <!-- J vs P -->
+            <div class="bar-row">
+                <span class="label left">판단 (J)</span>
+                <div class="bar-track">
+                    {@ $ratio_j = ($mbti_result->score_j / ($mbti_result->score_j + $mbti_result->score_p)) * 100 }
+                    {@ $ratio_p = 100 - $ratio_j }
+                    <div class="bar-fill j-fill" style="width:{$ratio_j}%"></div>
+                    <div class="bar-fill p-fill" style="width:{$ratio_p}%"></div>
+                </div>
+                <span class="label right">인식 (P)</span>
+            </div>
+        </div>
+
+        <div class="result-actions">
+            <!--@if($is_logged)-->
+            <a href="{getUrl('act','dispMbtiIndex', 'result_srl', '')}" class="mbti-btn mbti-btn-secondary">다시 검사하기</a>
+            <!--@end-->
+        </div>
+    </div>
+</div>

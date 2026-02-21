@@ -1,0 +1,38 @@
+<load target="css/mbti.css" />
+<load target="js/mbti.js" />
+<!-- 질문 데이터를 JS에서 쉽게 쓰기 위함 -->
+<script type="application/json" id="mbti-data">
+    {$questions_json}
+</script>
+<script>
+    var mbti_data_el = document.getElementById('mbti-data');
+    var mbti_questions = mbti_data_el ? JSON.parse(mbti_data_el.textContent) : [];
+    var mbti_cost = {(int)$mbti_config-> point_cost};
+</script>
+
+<div class="mbti-premium-container">
+    <div id="mbti-test-app" class="mbti-test-app" style="display: none;">
+        <div class="mbti-progress-bar">
+            <div class="mbti-progress-fill" id="mbti-progress-fill"></div>
+        </div>
+        <div class="mbti-progress-text">
+            <span id="current-q-num">1</span> / <span id="total-q-num">40</span>
+        </div>
+
+        <div class="mbti-question-slider" id="mbti-question-slider">
+            <!-- 질문이 JS를 통해 여기에 렌더링됩니다. -->
+        </div>
+
+        <div class="mbti-footer-nav">
+            <button type="button" class="mbti-btn mbti-btn-prev" id="btn-prev-q" style="display: none;">← 이전</button>
+            <span class="mbti-auto-save-msg" id="auto-save-msg">답변이 자동 저장됩니다.</span>
+        </div>
+    </div>
+
+    <!-- 결과 계산 중 로딩 화면 -->
+    <div id="mbti-loading" class="mbti-loading-screen" style="display: none;">
+        <div class="spinner"></div>
+        <h3>결과 분석 중입니다...</h3>
+        <p>잠시만 기다려주세요.</p>
+    </div>
+</div>

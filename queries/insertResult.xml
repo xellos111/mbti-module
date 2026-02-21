@@ -1,0 +1,19 @@
+<query id="insertResult" action="insert">
+    <tables>
+        <table name="mbti_results" />
+    </tables>
+    <columns>
+        <column name="result_srl" var="result_srl" filter="number" notnull="notnull" />
+        <column name="member_srl" var="member_srl" filter="number" notnull="notnull" />
+        <column name="mbti_type" var="mbti_type" filter="text" notnull="notnull" />
+        <column name="score_e" var="score_e" filter="number" notnull="notnull" />
+        <column name="score_i" var="score_i" filter="number" notnull="notnull" />
+        <column name="score_s" var="score_s" filter="number" notnull="notnull" />
+        <column name="score_n" var="score_n" filter="number" notnull="notnull" />
+        <column name="score_t" var="score_t" filter="number" notnull="notnull" />
+        <column name="score_f" var="score_f" filter="number" notnull="notnull" />
+        <column name="score_j" var="score_j" filter="number" notnull="notnull" />
+        <column name="score_p" var="score_p" filter="number" notnull="notnull" />
+        <column name="regdate" var="regdate" default="curdate()" />
+    </columns>
+</query>
