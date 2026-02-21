@@ -24,8 +24,8 @@ class mbtiController extends mbti
         $member_srl = $logged_info->member_srl;
         $answers = Context::get('answers');
 
-        if(!$answers || !is_array($answers) || count($answers) < 40) {
-            return new BaseObject(-1, '모든 문항에 답변해주세요.');
+        if(!$answers || !is_array($answers) || count($answers) < 60) {
+            return new BaseObject(-1, '모든 문항(60개)에 답변해주세요.');
         }
 
         // Calculate scores

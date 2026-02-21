@@ -97,7 +97,12 @@
         }
 
         // Event Listeners
+        var isAnimating = false; // Add flag to prevent double clicks
+
         $('body').on('click', '.mbti-option-btn', function() {
+            if (isAnimating) return; // Ignore clicks if already transitioning
+            isAnimating = true;
+
             var $this = $(this);
             var idx = parseInt($this.data('idx'));
             var val = $this.data('val');
@@ -116,23 +121,33 @@
                 $('#q-slide-' + idx).fadeOut(200, function() {
                     currentIdx++;
                     if(currentIdx < total) {
-                        $('#q-slide-' + currentIdx).fadeIn(200);
+                        $('#q-slide-' + currentIdx).fadeIn(200, function() {
+                            isAnimating = false; // Re-enable clicks after next question is fully visible
+                        });
                         updateProgress();
                     } else {
                         // Finished
                         updateProgress();
                         submitTest();
+                        // Intentionally not setting isAnimating to false here so buttons become permanently disabled
                     }
                 });
             }, 300);
         });
 
         $btnPrev.on('click', function() {
+            if (isAnimating) return;
+            isAnimating = true;
+
             if(currentIdx > 0) {
                 $('#q-slide-' + currentIdx).hide();
                 currentIdx--;
-                $('#q-slide-' + currentIdx).fadeIn(200);
+                $('#q-slide-' + currentIdx).fadeIn(200, function() {
+                    isAnimating = false;
+                });
                 updateProgress();
+            } else {
+                isAnimating = false;
             }
         });
 
