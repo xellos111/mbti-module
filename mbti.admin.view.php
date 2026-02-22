@@ -29,6 +29,17 @@ class mbtiAdminView extends mbti
         $group_list = $oMemberModel->getGroups(0);
         Context::set('group_list', $group_list);
 
+        $stats = $oMbtiModel->getCommunityStats();
+        Context::set('mbti_stats', $stats);
+
+        $total_count = 0;
+        if(is_array($stats)) {
+            foreach($stats as $stat) {
+                $total_count += $stat->count;
+            }
+        }
+        Context::set('mbti_total_count', $total_count);
+
         $this->setTemplateFile('index');
     }
 }

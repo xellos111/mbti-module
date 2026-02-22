@@ -55,8 +55,7 @@
             <h3 class="stats-title">🔥 커뮤니티 MBTI 분포도</h3>
             <div class="stats-bar-wrap">
                 <!--@foreach($mbti_stats as $stat)-->
-                <div class="stat-item" style="width: {$stat->percent}%"
-                    title="{$stat->mbti_type} ({$stat->count}명, {$stat->percent}%)">
+                <div class="stat-item" style="width: {$stat->percent}%" title="{$stat->mbti_type} ({$stat->percent}%)">
                     <span class="stat-type">{$stat->mbti_type}</span>
                     <span class="stat-percent">{$stat->percent}%</span>
                 </div>

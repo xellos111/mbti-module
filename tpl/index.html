@@ -44,6 +44,24 @@
         </div>
     </section>
 
+    <!--@if($mbti_stats && count($mbti_stats) > 0)-->
+    <section class="section">
+        <h1>커뮤니티 MBTI 분포 상세 (관리자용) - 총 {$mbti_total_count}명 참여</h1>
+        <div style="margin:20px 0;">
+            <div
+                style="width: 100%; max-width: 600px; height: 36px; background: #f1f5f9; border-radius: 20px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); overflow: hidden; display: flex;">
+                <!--@foreach($mbti_stats as $stat)-->
+                <div style="height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; background-position: center; background-size: cover; white-space: nowrap; overflow: hidden; font-size: 0.8rem; font-weight: 700; color: white; text-shadow: 0 1px 2px rgba(0,0,0,0.5); border-right: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease; width: {$stat->percent}%; background-color: var(--mbti-primary, #6366f1);"
+                    title="{$stat->mbti_type} ({$stat->count}명, {$stat->percent}%)">
+                    <span>{$stat->mbti_type}</span>
+                </div>
+                <!--@end-->
+            </div>
+            <p class="x_help-block" style="margin-top:10px;">막대에 마우스를 올리면 각 유형의 정확한 사람 수(명)와 비율(%)을 확인할 수 있습니다.</p>
+        </div>
+    </section>
+    <!--@end-->
+
     <div class="x_clearfix btnArea">
         <button type="submit" class="x_btn x_btn-primary">{$lang->cmd_save}</button>
     </div>

@@ -81,16 +81,27 @@
             </div>
         </div>
 
-        <div class="result-actions" style="margin-top: 30px; display:flex; gap:10px; justify-content:center;">
+        <div class="result-actions"
+            style="margin-top: 30px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
             <!--@if($is_logged)-->
             <a href="{getUrl('act','dispMbtiIndex', 'result_srl', '')}" class="mbti-btn mbti-btn-secondary">다시 검사하기</a>
             <!--@end-->
             <button class="mbti-btn mbti-btn-primary" onclick="copyMbtiLink()">내 결과 공유하기</button>
+            <a href="{getUrl('', 'mid', $mid, 'act', '')}" class="mbti-btn mbti-btn-secondary"
+                style="background-color:#64748b; border-color:#64748b; color:white;">홈으로 돌아가기</a>
         </div>
     </div>
 </div>
 
 <script>
+    // 뒤로가기 클릭 시 다시 검사지로 가는 것을 방지하고 홈으로 이동
+    if (window.history && window.history.pushState) {
+        window.history.pushState(null, null, window.location.href);
+        window.onpopstate = function () {
+            window.location.href = "{getUrl('', 'mid', $mid, 'act', '')}";
+        };
+    }
+
     function copyMbtiLink() {
         const url = window.location.href;
         navigator.clipboard.writeText(url).then(() => {

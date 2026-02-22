@@ -387,6 +387,17 @@
     font-weight: 600;
     transition: all 0.3s ease;
     cursor: help;
+    overflow: hidden;
+    /* Prevent text spilling out */
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+/* Hide content if the bar is too thin (using a pseudo-class or just relying on overflow) */
+.stat-item>span {
+    display: block;
+    padding: 0 4px;
+    /* Add slight padding so very thin bars just cut off the text nicely */
 }
 
 /* Simple color rotation for top 16 */
@@ -430,11 +441,14 @@
 .stat-type {
     font-size: 0.875rem;
     line-height: 1.1;
+    text-overflow: clip;
+    /* Ensure no ellipsis pushes text out */
 }
 
 .stat-percent {
     opacity: 0.8;
     transform: scale(0.9);
+    text-overflow: clip;
 }
 
 .stats-desc {
