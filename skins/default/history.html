@@ -1,0 +1,53 @@
+<load target="css/mbti.css" />
+
+<div class="mbti-premium-container">
+    <div class="mbti-test-app" style="text-align: center;">
+        <h2 class="q-title" style="margin-bottom: 24px;">나의 검사 기록</h2>
+
+        <!--@if(!$history_list || count($history_list) == 0)-->
+        <p style="color: var(--mbti-text-sub); padding: 40px 0;">이전 검사 기록이 없습니다.</p>
+        <!--@else-->
+        <table class="mbti-history-table">
+            <thead>
+                <tr>
+                    <th>검사 일시</th>
+                    <th>결과 유형</th>
+                    <th>상세 보기</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--@foreach($history_list as $no => $item)-->
+                <tr class="mbti-history-item">
+                    <td>{zdate($item->regdate, 'Y-m-d H:i')}</td>
+                    <td class="mbti-history-type">{$item->mbti_type} <span
+                            style="font-size:0.8em; color:var(--mbti-secondary-text);">({$item->mbti_subtype})</span>
+                    </td>
+                    <td>
+                        <a href="{getUrl('act','dispMbtiResult', 'result_srl', $item->result_srl)}"
+                            class="mbti-history-link">보기</a>
+                    </td>
+                </tr>
+                <!--@end-->
+            </tbody>
+        </table>
+
+        <!--@if($page_navigation && $page_navigation->total_page > 1)-->
+        <div class="pagination" style="margin-top: 24px;">
+            <a href="{getUrl('page','')}" class="direction">&laquo; 처음</a>
+            <!--@while($page_no = $page_navigation->getNextPage())-->
+            <!--@if($page == $page_no)-->
+            <strong style="margin: 0 4px; color: var(--mbti-primary);">{$page_no}</strong>
+            <!--@else-->
+            <a href="{getUrl('page',$page_no)}" style="margin: 0 4px; color: var(--mbti-text-sub);">{$page_no}</a>
+            <!--@end-->
+            <!--@end-->
+            <a href="{getUrl('page',$page_navigation->last_page)}" class="direction">끝 &raquo;</a>
+        </div>
+        <!--@end-->
+        <!--@end-->
+
+        <div class="mbti-footer-nav" style="justify-content: center; margin-top: 32px;">
+            <a href="{getUrl('act','dispMbtiIndex', 'page', '')}" class="mbti-btn mbti-btn-secondary">이전으로 돌아가기</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+{
+    "ESTJ": {
+        "nickname": "엄격한 관리자",
+        "description": "사물이나 사람을 관리하는 데 타의 추종을 불허하는 뛰어난 실력을 갖춘 관리자입니다. 전통과 질서를 중시하며, 옳고 그름을 따져 사회의 기준을 세우는 데 앞장섭니다.",
+        "good_match": "INTP, ISFP, ISTP",
+        "bad_match": "INFP, ENFP, INFJ"
+    },
+    "ENTJ": {
+        "nickname": "대담한 통솔자",
+        "description": "대담하면서도 상상력이 풍부한 강한 의지의 소유자로, 다양한 방법을 모색하거나 여의치 않을 경우 새로운 방안을 창출하는 진정한 리더형입니다.",
+        "good_match": "INFP, INTP",
+        "bad_match": "ISFJ, ESFJ, ISTJ"
+    },
+    "ESFJ": {
+        "nickname": "사교적인 외교관",
+        "description": "타인을 향한 세심한 관심과 사교적인 성향으로 사람들 내에서 인기가 많으며, 타인을 돕는데 열성적인 세심한 성격입니다.",
+        "good_match": "ISFP, ISTP",
+        "bad_match": "INFP, ENFP, INFJ"
+    },
+    "ENFJ": {
+        "nickname": "정의로운 사회운동가",
+        "description": "넘치는 카리스마와 영향력으로 청중을 압도하는 리더형입니다. 사람들을 이끄는 데 타고난 기질이 있으며 진정으로 타인을 생각하고 배려합니다.",
+        "good_match": "INFP, ISFP",
+        "bad_match": "ISTP, ESTP, ISTJ"
+    },
+    "ESTP": {
+        "nickname": "모험을 즐기는 사업가",
+        "description": "벼랑 끝의 아슬아슬한 삶을 진정으로 즐길 줄 아는 이들로, 명석한 두뇌와 에너지, 그리고 뛰어난 직관력을 가지고 있습니다.",
+        "good_match": "ISFJ, ISTJ",
+        "bad_match": "INFP, ENFP, INFJ"
+    },
+    "ENTP": {
+        "nickname": "뜨거운 논쟁을 즐기는 변론가",
+        "description": "천부적으로 재치 있는 입담과 풍부한 지식을 통해 그 어떤 논쟁에서도 거침없이 당당하게 맞서는 성격입니다.",
+        "good_match": "INFJ, INTJ",
+        "bad_match": "ISFJ, ESFJ, ISTJ"
+    },
+    "ESFP": {
+        "nickname": "자유로운 영혼의 연예인",
+        "description": "주위에 있으면 인생이 지루할 새가 없을 정도로 즉흥적이며 열정과 에너지가 넘치는 연예인형입니다.",
+        "good_match": "ISFJ, ISTJ",
+        "bad_match": "INFP, ENFP, INFJ"
+    },
+    "ENFP": {
+        "nickname": "재기발랄한 활동가",
+        "description": "창의적이며 항상 웃을 거리를 찾아다니는 활기찬 성격으로, 사람들과 자유롭게 어울리기를 좋아하는 진정한 자유 영혼입니다.",
+        "good_match": "INFJ, INTJ",
+        "bad_match": "ISTJ, ESTJ, ISFJ"
+    },
+    "ISTJ": {
+        "nickname": "청렴결백한 논리주의자",
+        "description": "사실에 근거하여 사고하며, 이들의 행동이나 결정 사항에는 한 치의 의심을 살 만한 여지가 없는 현실주의자형입니다.",
+        "good_match": "ESFP, ESTP",
+        "bad_match": "INFP, ENFP, INFJ"
+    },
+    "INTJ": {
+        "nickname": "용의주도한 전략가",
+        "description": "상상력이 풍부하면서도 결단력이 있으며, 야망이 있지만 대외적으로 표현하지 않으며, 놀랄 만큼 호기심이 많지만 쓸데없는 데 에너지를 낭비하지 않습니다.",
+        "good_match": "ENFP, ENTP",
+        "bad_match": "ISFJ, ESFJ, ISTJ"
+    },
+    "ISFJ": {
+        "nickname": "용감한 수호자",
+        "description": "소중한 이들을 수호하는 데 심혈을 기울이는 헌신적이며 성실한 방어자형입니다. 조용하고 내성적이지만 관계 구축에 뛰어난 소질이 있습니다.",
+        "good_match": "ESFP, ESTP",
+        "bad_match": "INFP, ENFP, INFJ"
+    },
+    "INFJ": {
+        "nickname": "선의의 옹호자",
+        "description": "조용하고 신비로우며 샘솟는 영감으로 지칠 줄 모르는 이상주의자입니다. 사람들을 돕는 것을 인생의 목적으로 여깁니다.",
+        "good_match": "ENFP, ENTP",
+        "bad_match": "ESTP, ISTP, ESTJ"
+    },
+    "ISTP": {
+        "nickname": "만능 재주꾼",
+        "description": "대담하고 현실적인 성향으로, 다양한 도구 사용에 능숙하며 탐험과 기계 분해 조립 등을 즐기는 장인형입니다.",
+        "good_match": "ESFJ, ESTJ",
+        "bad_match": "INFP, ENFP, INFJ"
+    },
+    "INTP": {
+        "nickname": "논리적인 사색가",
+        "description": "끊임없이 새로운 지식에 목말라 하는 혁신가형으로, 평범함을 거부하며 사물의 보편적인 원리를 파악하는 데 흥미를 느낍니다.",
+        "good_match": "ENTJ, ESTJ",
+        "bad_match": "ISFJ, ESFJ, ISTJ"
+    },
+    "ISFP": {
+        "nickname": "호기심 많은 예술가",
+        "description": "항상 새로운 것을 찾아 시도하거나 도전할 준비가 되어 있는 융통성 있는 성격의 매력 넘치는 예술가형입니다.",
+        "good_match": "ENFJ, ESFJ, ESTJ",
+        "bad_match": "INFP, ENFP, INFJ"
+    },
+    "INFP": {
+        "nickname": "열정적인 중재자",
+        "description": "최악의 상황이나 악한 사람에게서도 좋은 면만을 바라보며 긍정적이고 더 나은 상황을 만들고자 노력하는 진정한 이상주의자입니다.",
+        "good_match": "ENFJ, ENTJ",
+        "bad_match": "ISTJ, ESTJ, ISTP"
+    }
+}

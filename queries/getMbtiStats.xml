@@ -1,0 +1,15 @@
+<query id="getMbtiStats" action="select">
+    <tables>
+        <table name="mbti_results" />
+    </tables>
+    <columns>
+        <column name="mbti_type" />
+        <column name="count(*)" alias="count" />
+    </columns>
+    <groups>
+        <group column="mbti_type" />
+    </groups>
+    <navigation>
+        <index var="sort_index" default="count" order="desc" />
+    </navigation>
+</query>

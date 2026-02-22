@@ -62,7 +62,7 @@ class mbtiController extends mbti
             }
 
             $oPointController = getController('point');
-            $oPointController->setPoint($member_srl, -$cost, 'minus');
+            $oPointController->setPoint($member_srl, $cost, 'minus');
         }
 
         // Insert into DB

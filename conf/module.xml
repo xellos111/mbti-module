@@ -6,8 +6,13 @@
         <action name="dispMbtiIndex" type="view" standalone="true" />
         <action name="dispMbtiTest" type="view" standalone="true" />
         <action name="dispMbtiResult" type="view" standalone="true" />
-        
+        <action name="dispMbtiHistory" type="view" standalone="true" />
+
         <!-- Controller Actions -->
         <action name="procMbtiSubmit" type="controller" standalone="true" />
+
+        <!-- Admin Actions -->
+        <action name="dispMbtiAdminIndex" type="view" standalone="true" admin_index="true" />
+        <action name="procMbtiAdminInsertConfig" type="controller" />
     </actions>
 </module>

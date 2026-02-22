@@ -4,9 +4,32 @@
     <div class="mbti-result-card mbti-type-{$mbti_result->mbti_type}">
         <div class="result-header">
             <h4>당신의 성격 유형은</h4>
-            <h1 class="result-type">{$mbti_result->mbti_type}</h1>
+            <h1 class="result-type">{$mbti_result->mbti_type} <span
+                    style="font-size:0.6em; color:var(--mbti-secondary-text);">({$mbti_result->mbti_subtype})</span>
+            </h1>
+            <!--@if($type_info)-->
+            <h3 class="result-nickname" style="color:var(--mbti-primary); margin-top:-10px; margin-bottom:15px;">
+                "{$type_info->nickname}"</h3>
+            <!--@end-->
             <p class="result-date">{zdate($mbti_result->regdate, 'Y년 m월 d일')} 검사 완료</p>
         </div>
+
+        <!--@if($type_info)-->
+        <div class="result-desc-box"
+            style="background:#f8fafc; padding:20px; border-radius:12px; margin: 20px 0; text-align:left; line-height:1.6; color:var(--mbti-text-main);">
+            <p style="margin-bottom:15px;">{$type_info->description}</p>
+            <div style="display:flex; gap:10px; font-size:0.9rem;">
+                <div style="flex:1; background:#ecfdf5; padding:12px; border-radius:8px;">
+                    <strong style="color:#10b981;">👍 환상의 짝꿍</strong><br />
+                    {$type_info->good_match}
+                </div>
+                <div style="flex:1; background:#fef2f2; padding:12px; border-radius:8px;">
+                    <strong style="color:#ef4444;">👎 환장의 짝꿍</strong><br />
+                    {$type_info->bad_match}
+                </div>
+            </div>
+        </div>
+        <!--@end-->
 
         <div class="result-bars">
             <!-- E vs I -->
@@ -58,10 +81,22 @@
             </div>
         </div>
 
-        <div class="result-actions">
+        <div class="result-actions" style="margin-top: 30px; display:flex; gap:10px; justify-content:center;">
             <!--@if($is_logged)-->
             <a href="{getUrl('act','dispMbtiIndex', 'result_srl', '')}" class="mbti-btn mbti-btn-secondary">다시 검사하기</a>
             <!--@end-->
+            <button class="mbti-btn mbti-btn-primary" onclick="copyMbtiLink()">내 결과 공유하기</button>
         </div>
     </div>
 </div>
+
+<script>
+    function copyMbtiLink() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            alert("결과 페이지 링크가 복사되었습니다!\n친구들에게 공유해보세요.");
+        }).catch(err => {
+            alert("링크 복사에 실패했습니다. 수동으로 주소창의 링크를 복사해주세요.");
+        });
+    }
+</script>

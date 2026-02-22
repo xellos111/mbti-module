@@ -18,13 +18,81 @@
         </div>
 
         <!--@if($is_logged)-->
-        <a href="{getUrl('act','dispMbtiTest')}" class="mbti-btn mbti-btn-primary mbti-btn-large">
-            검사 시작하기
-            <span class="mbti-btn-arrow">→</span>
-        </a>
+        <div class="mbti-btn-group">
+            <script>
+                var hasPrevResult = '<!--@if($latest_result)-->Y<!--@else-->N<!--@end-->';
+            </script>
+            <!--@if($is_allowed)-->
+            <a href="{getUrl('act','dispMbtiTest')}" class="mbti-btn mbti-btn-primary mbti-btn-large"
+                onclick="return confirmMbtiStart({$mbti_config->point_cost}, hasPrevResult === 'Y');">
+                검사 시작하기
+                <span class="mbti-btn-arrow">→</span>
+            </a>
+            <!--@else-->
+            <a href="#" class="mbti-btn mbti-btn-secondary mbti-btn-large" style="opacity: 0.6; cursor: not-allowed;"
+                onclick="alert('검사를 이용할 수 있는 등급이 아닙니다.'); return false;">
+                검사 이용 권한 없음
+            </a>
+            <!--@end-->
+            <!--@if($latest_result)-->
+            <a href="{getUrl('act','dispMbtiResult', 'result_srl', $latest_result->result_srl)}"
+                class="mbti-btn mbti-btn-secondary mbti-btn-large">
+                나의 이전 결과 보기
+            </a>
+            <!--@end-->
+        </div>
+        <div style="margin-top: 16px;">
+            <a href="{getUrl('act','dispMbtiHistory')}"
+                style="color: var(--mbti-text-sub); text-decoration: underline; font-size: 0.875rem;">나의 전체 검사 기록 보기</a>
+        </div>
         <!--@else-->
         <a href="{getUrl('act','dispMemberLoginForm')}" class="mbti-btn mbti-btn-secondary mbti-btn-large">로그인 후 이용
             가능합니다</a>
         <!--@end-->
+
+        <!--@if($mbti_stats && count($mbti_stats) > 0)-->
+        <div class="mbti-stats-container">
+            <h3 class="stats-title">🔥 커뮤니티 MBTI 분포도</h3>
+            <div class="stats-bar-wrap">
+                <!--@foreach($mbti_stats as $stat)-->
+                <div class="stat-item" style="width: {$stat->percent}%"
+                    title="{$stat->mbti_type} ({$stat->count}명, {$stat->percent}%)">
+                    <span class="stat-type">{$stat->mbti_type}</span>
+                    <span class="stat-percent">{$stat->percent}%</span>
+                </div>
+                <!--@end-->
+            </div>
+            <p class="stats-desc">막대에 커서를 올리면 상세 통계를 볼 수 있습니다.</p>
+        </div>
+        <!--@end-->
     </div>
 </div>
+
+<script>
+    function confirmMbtiStart(cost, hasPreviousResult) {
+        let msg = "";
+
+        // Check if there is saved progress in localStorage
+        const savedAnswers = localStorage.getItem('mbti_answers');
+        let hasSavedProgress = false;
+        if (savedAnswers) {
+            try {
+                const parsed = JSON.parse(savedAnswers);
+                if (Object.keys(parsed).length > 0) {
+                    hasSavedProgress = true;
+                }
+            } catch (e) { }
+        }
+
+        if (hasSavedProgress) {
+            msg += "이전에 진행 중이던 검사 내역이 있습니다.\n이어서 계속하시겠습니까?\n\n(※ 이어서 검사할 경우 차감되지 않으며, 완전히 새로운 검사를 제출할 때만 " + cost + "캡슐이 차감됩니다.)";
+        } else {
+            if (hasPreviousResult) {
+                msg += "이전 검사 결과가 있습니다.\n새로 검사를 시작하시겠습니까?\n\n";
+            }
+            msg += "새로운 검사를 완료(제출)하면 " + cost + " 캡슐이 차감됩니다.\n진행하시겠습니까?";
+        }
+
+        return confirm(msg);
+    }
+</script>
